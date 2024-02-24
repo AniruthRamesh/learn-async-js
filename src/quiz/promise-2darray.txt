@@ -1,1 +1,15 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+1. after the sum2DArray() function call, it immediately returns a promise object
+  this promise is in pending state, until resolve or reject is called
+
+2. some of the console.log inside the function are synchronous and are executed regardless input is array or not
+    Sum called ...
+    returning from sum
+
+3. resolving ... is not seen because it is an async, so a callback is placed on the JS event loop 
+4. In case of an invalid input the promise returned is rejected so we are able to see the console log inside the promise object
+5. we are console logging the promise object and not the errors or the values
+6. resolving ... will be only seen after the current execution of the event loop
+
+7. since we are not handling the rejection properly, we are getting the errors (uncaught exception)
