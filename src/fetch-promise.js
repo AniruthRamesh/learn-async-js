@@ -10,4 +10,5 @@ const fetchPromise = fetch(
   });
   
   console.log("Started request…");
+
   
